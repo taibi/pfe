@@ -46,8 +46,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSource = new System.Windows.Forms.ComboBox();
+            this.comboBoxTypePrimitive = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -81,6 +81,9 @@
             this.folderBrowserDialog3 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog4 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog5 = new System.Windows.Forms.FolderBrowserDialog();
+            this.radioButtonApprentissage = new System.Windows.Forms.RadioButton();
+            this.radioButtonValidation = new System.Windows.Forms.RadioButton();
+            this.radioButtonTest = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -269,8 +272,11 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.radioButtonTest);
+            this.tabPage2.Controls.Add(this.radioButtonValidation);
+            this.tabPage2.Controls.Add(this.radioButtonApprentissage);
+            this.tabPage2.Controls.Add(this.comboBoxSource);
+            this.tabPage2.Controls.Add(this.comboBoxTypePrimitive);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.listBox1);
@@ -281,32 +287,32 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(648, 386);
+            this.tabPage2.Size = new System.Drawing.Size(648, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Extraction";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // comboBox2
+            // comboBoxSource
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(114, 67);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 12;
+            this.comboBoxSource.FormattingEnabled = true;
+            this.comboBoxSource.Location = new System.Drawing.Point(105, 105);
+            this.comboBoxSource.Name = "comboBoxSource";
+            this.comboBoxSource.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSource.TabIndex = 12;
             // 
-            // comboBox1
+            // comboBoxTypePrimitive
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(114, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
+            this.comboBoxTypePrimitive.FormattingEnabled = true;
+            this.comboBoxTypePrimitive.Location = new System.Drawing.Point(105, 57);
+            this.comboBoxTypePrimitive.Name = "comboBoxTypePrimitive";
+            this.comboBoxTypePrimitive.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTypePrimitive.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 22);
+            this.label1.Location = new System.Drawing.Point(9, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 9;
@@ -324,9 +330,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(368, 60);
+            this.listBox1.Location = new System.Drawing.Point(369, 57);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(217, 290);
+            this.listBox1.Size = new System.Drawing.Size(217, 225);
             this.listBox1.TabIndex = 7;
             // 
             // buttonExtraire
@@ -359,7 +365,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 70);
+            this.label3.Location = new System.Drawing.Point(9, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 0;
@@ -381,7 +387,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(648, 386);
+            this.tabPage3.Size = new System.Drawing.Size(648, 306);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Association";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -437,7 +443,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 165);
+            this.label7.Location = new System.Drawing.Point(26, 173);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 5;
@@ -498,7 +504,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(648, 386);
+            this.tabPage4.Size = new System.Drawing.Size(648, 306);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Fusion";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -533,7 +539,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(368, 24);
+            this.label11.Location = new System.Drawing.Point(367, 12);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(103, 13);
             this.label11.TabIndex = 4;
@@ -542,9 +548,9 @@
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(332, 43);
+            this.listBox3.Location = new System.Drawing.Point(331, 33);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(195, 277);
+            this.listBox3.Size = new System.Drawing.Size(195, 251);
             this.listBox3.TabIndex = 3;
             this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
@@ -581,6 +587,42 @@
             this.radioButton3.Text = "Apprentissage";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
+            // radioButtonApprentissage
+            // 
+            this.radioButtonApprentissage.AutoSize = true;
+            this.radioButtonApprentissage.Location = new System.Drawing.Point(12, 17);
+            this.radioButtonApprentissage.Name = "radioButtonApprentissage";
+            this.radioButtonApprentissage.Size = new System.Drawing.Size(92, 17);
+            this.radioButtonApprentissage.TabIndex = 13;
+            this.radioButtonApprentissage.TabStop = true;
+            this.radioButtonApprentissage.Text = "Apprentissage";
+            this.radioButtonApprentissage.UseVisualStyleBackColor = true;
+            this.radioButtonApprentissage.CheckedChanged += new System.EventHandler(this.radioButtonApprentissage_CheckedChanged);
+            // 
+            // radioButtonValidation
+            // 
+            this.radioButtonValidation.AutoSize = true;
+            this.radioButtonValidation.Location = new System.Drawing.Point(119, 17);
+            this.radioButtonValidation.Name = "radioButtonValidation";
+            this.radioButtonValidation.Size = new System.Drawing.Size(71, 17);
+            this.radioButtonValidation.TabIndex = 14;
+            this.radioButtonValidation.TabStop = true;
+            this.radioButtonValidation.Text = "Validation";
+            this.radioButtonValidation.UseVisualStyleBackColor = true;
+            this.radioButtonValidation.CheckedChanged += new System.EventHandler(this.radioButtonValidation_CheckedChanged);
+            // 
+            // radioButtonTest
+            // 
+            this.radioButtonTest.AutoSize = true;
+            this.radioButtonTest.Location = new System.Drawing.Point(212, 17);
+            this.radioButtonTest.Name = "radioButtonTest";
+            this.radioButtonTest.Size = new System.Drawing.Size(46, 17);
+            this.radioButtonTest.TabIndex = 15;
+            this.radioButtonTest.TabStop = true;
+            this.radioButtonTest.Text = "Test";
+            this.radioButtonTest.UseVisualStyleBackColor = true;
+            this.radioButtonTest.CheckedChanged += new System.EventHandler(this.radioButtonTest_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,6 +631,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -628,8 +671,8 @@
         private System.Windows.Forms.Label LabelApprentissage;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSource;
+        private System.Windows.Forms.ComboBox comboBoxTypePrimitive;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox1;
@@ -659,6 +702,9 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog3;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog4;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog5;
+        private System.Windows.Forms.RadioButton radioButtonTest;
+        private System.Windows.Forms.RadioButton radioButtonValidation;
+        private System.Windows.Forms.RadioButton radioButtonApprentissage;
 
     }
 }

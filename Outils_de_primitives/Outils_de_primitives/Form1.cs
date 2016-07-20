@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,6 +88,47 @@ namespace Outils_de_primitives
                 MessageBox.Show(ex.ToString());
                 return;
             }
+
+
+
+
+            char[] splitters = new char[] { ' ' };
+            string[] files;
+            try
+            {
+                files = Directory.GetFiles(folderBrowserDialog1.SelectedPath);
+            }
+            catch (Exception ex1)
+            {
+                MessageBox.Show(ex1.ToString());
+                return;
+            }
+            comboBoxTypePrimitive.Items.Clear();
+            foreach (string file in files)
+            {
+
+                try
+                {
+                    string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                    comboBoxTypePrimitive.Items.Add(laCase2[0]);
+
+                }
+                catch (Exception ex2)
+                {
+                    MessageBox.Show(ex2.ToString());
+                    return;
+                }
+            }
+
+
+
+
+
+
+
+
+
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -164,5 +206,183 @@ namespace Outils_de_primitives
                 return;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+        /*
+   * this fonction help to choise folder where program can find xlsx files
+   */
+        private void ChoiceFolder(string rep)
+        {
+            char[] splitters = new char[] { ' ' };
+            string[] files;
+            try
+            {
+                files = Directory.GetFiles(rep);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return;
+            }
+            comboBoxTypePrimitive.Items.Clear();
+            foreach (string file in files)
+            {
+
+                try
+                {
+                        string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                        comboBoxTypePrimitive.Items.Add(laCase2[0]);
+                    
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                    return;
+                }
+            }
+           
+        }
+
+        private void radioButtonApprentissage_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonApprentissage.Checked)
+            {
+
+
+                char[] splitters = new char[] { ' ' };
+                string[] files;
+                try
+                {
+                    files = Directory.GetFiles(LabelApprentissage.Text);
+                }
+                catch (Exception ex1)
+                {
+                    MessageBox.Show(ex1.ToString());
+                    return;
+                }
+                comboBoxSource.Items.Clear();
+                foreach (string file in files)
+                {
+
+                    try
+                    {
+                        string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                        comboBoxSource.Items.Add(laCase2[0]);
+
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.ToString());
+                        return;
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+            
+        }
+
+        private void radioButtonValidation_CheckedChanged(object sender, EventArgs e)
+        {
+              if (radioButtonValidation.Checked)
+            {
+
+
+                char[] splitters = new char[] { ' ' };
+                string[] files;
+                try
+                {
+                    files = Directory.GetFiles(labelValidation.Text);
+                }
+                catch (Exception ex1)
+                {
+                    MessageBox.Show(ex1.ToString());
+                    return;
+                }
+                comboBoxSource.Items.Clear();
+                foreach (string file in files)
+                {
+
+                    try
+                    {
+                        string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                        comboBoxSource.Items.Add(laCase2[0]);
+
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.ToString());
+                        return;
+                    }
+                }
+
+
+        }
+
     }
+
+        private void radioButtonTest_CheckedChanged(object sender, EventArgs e)
+        {
+             if (radioButtonTest.Checked)
+            {
+
+
+                char[] splitters = new char[] { ' ' };
+                string[] files;
+                try
+                {
+                    files = Directory.GetFiles(labelTest.Text);
+                }
+                catch (Exception ex1)
+                {
+                    MessageBox.Show(ex1.ToString());
+                    return;
+                }
+                comboBoxSource.Items.Clear();
+                foreach (string file in files)
+                {
+
+                    try
+                    {
+                        string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                        comboBoxSource.Items.Add(laCase2[0]);
+
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.ToString());
+                        return;
+                    }
+                }
+
+
+        }
+
+        }
+
+
+}
 }
