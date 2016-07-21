@@ -31,3 +31,4 @@ C:\Users\AK58610\Desktop\pfe\Outils_de_primitives\Outils_de_primitives\obj\Debug
 C:\Users\AK58610\Desktop\pfe\Outils_de_primitives\Outils_de_primitives\obj\Debug\Outils_de_primitives.csproj.GenerateResource.Cache
 C:\Users\AK58610\Desktop\pfe\Outils_de_primitives\Outils_de_primitives\obj\Debug\Outils_de_primitives.exe
 C:\Users\AK58610\Desktop\pfe\Outils_de_primitives\Outils_de_primitives\obj\Debug\Outils_de_primitives.pdb
+C:\Users\AK58610\Desktop\pfe\Outils_de_primitives\Outils_de_primitives\obj\Debug\Outils_de_primitives.csprojResolveAssemblyReference.cache
