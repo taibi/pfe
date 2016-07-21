@@ -1,10 +1,12 @@
-obj = VideoReader('primitives\\test_2.mp4');
+function  extract(source,destination)
+obj = VideoReader(source);
 i = 1;
 tab = [];
-fid = fopen('primitives\\test_2.arff','w');
+fid = fopen(destination,'w');
 nFrames = obj.NumberOfFrames;
-for k = 1 : 1000 :nFrames
-  fprintf(fid, '%s','test_2');
+%for k = 1 : 3000 :nFrames
+for k = 1 : 3
+  fprintf(fid, '%s','test_3');
   fprintf(fid, ',%i', k);
   fprintf(fid, ',%f', obj.CurrentTime);
   this_frame = read(obj, k);

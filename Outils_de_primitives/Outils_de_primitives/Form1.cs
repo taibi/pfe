@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Outils_de_primitives
 {
@@ -16,6 +18,7 @@ namespace Outils_de_primitives
         public Form1()
         {
             InitializeComponent();
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,11 +66,68 @@ namespace Outils_de_primitives
 
             // Call the MATLAB function myfunc
             // matlab.Feval("myfunc", 2, out result, 3.14, 42.0, "world");
-            matlab.Feval("extract", 0, out result);
+           // matlab.Feval("extract", 1, out result, LabelApprentissage.Text+ "//" + comboBoxSource.Text);
+            matlab.Feval("extract", 0, out result, label13.Text, DestinationLabel.Text);
+
+
+
+
+
+
+
+
+            /*
+            if (radioButtonApprentissage.Checked)
+            {
+            matlab.Feval("extract", 0, out result, @label13.Text, @LabelApprentissage.Text);
+            }
+            if (radioButtonValidation.Checked)
+            {
+                matlab.Feval("extract", 0, out result, @label13.Text, @labelValidation.Text);
+            }
+            if (radioButtonTest.Checked)
+            {
+                matlab.Feval("extract", 0, out result, @label13.Text, @labelTest.Text);
+            }
+            */
+            
+
         }
+
+   
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
+
+            char[] splitters = new char[] { ' ' };
+            string[] files;
+            try
+            {
+                files = Directory.GetFiles(labelTypePrimitives.Text);
+            }
+            catch (Exception ex1)
+            {
+                MessageBox.Show(ex1.ToString());
+                return;
+            }
+            comboBoxTypePrimitive.Items.Clear();
+            foreach (string file in files)
+            {
+
+                try
+                {
+                    string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                    comboBoxTypePrimitive.Items.Add(laCase2[0]);
+
+                }
+                catch (Exception ex2)
+                {
+                    MessageBox.Show(ex2.ToString());
+                    return;
+                }
+            }
+
+
 
         }
 
@@ -79,8 +139,43 @@ namespace Outils_de_primitives
             {
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    labelTypePrimitives.Text = folderBrowserDialog1.SelectedPath;
+                    /* 
+                     Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);       
+                     config.AppSettings.Settings.Remove("primitives");
+                     config.AppSettings.Settings.Add("primitives", folderBrowserDialog1.SelectedPath);
+                     config.Save(ConfigurationSaveMode.Modified);
+                     ConfigurationManager.RefreshSection("appSettings");
+                     labelTypePrimitives.Text = ConfigurationManager.AppSettings["primitives"];
+
+                    
+                      */
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+                    foreach (XmlElement element in xmlDoc.DocumentElement)
+                    {
+                        if (element.Name.Equals("appSettings"))
+                        {
+                            foreach (XmlNode node in element.ChildNodes)
+                            {
+                                if (node.Attributes[0].Value.Equals("primitives"))
+                                {
+                                    node.Attributes[1].Value = folderBrowserDialog1.SelectedPath;
+                                }
+                            }
+                        }
+                    }
+                    xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    labelTypePrimitives.Text = ConfigurationManager.AppSettings["primitives"];
                    
+
+
+
+
+
+
+
+
                 }
             }
             catch (Exception ex)
@@ -90,7 +185,7 @@ namespace Outils_de_primitives
             }
 
 
-
+            /*
 
             char[] splitters = new char[] { ' ' };
             string[] files;
@@ -124,7 +219,7 @@ namespace Outils_de_primitives
 
 
 
-
+            */
 
 
 
@@ -139,7 +234,37 @@ namespace Outils_de_primitives
             {
                 if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
                 {
-                    labelEvaluation.Text = folderBrowserDialog2.SelectedPath;
+
+                    /*
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings.Remove("evaluation");
+                    config.AppSettings.Settings.Add("evaluation", folderBrowserDialog2.SelectedPath);
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    labelEvaluation.Text = ConfigurationManager.AppSettings["evaluation"];
+                    
+                    */
+
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+                    foreach (XmlElement element in xmlDoc.DocumentElement)
+                    {
+                        if (element.Name.Equals("appSettings"))
+                        {
+                            foreach (XmlNode node in element.ChildNodes)
+                            {
+                                if (node.Attributes[0].Value.Equals("evaluation"))
+                                {
+                                    node.Attributes[1].Value = folderBrowserDialog2.SelectedPath;
+                                }
+                            }
+                        }
+                    }
+                    xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    labelEvaluation.Text = ConfigurationManager.AppSettings["evaluation"];
+
+
 
                 }
             }
@@ -158,7 +283,17 @@ namespace Outils_de_primitives
             {
                 if (folderBrowserDialog3.ShowDialog() == DialogResult.OK)
                 {
-                    LabelApprentissage.Text = folderBrowserDialog3.SelectedPath;
+
+
+
+
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings.Remove("apprentissage");
+                    config.AppSettings.Settings.Add("apprentissage", folderBrowserDialog3.SelectedPath);
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    LabelApprentissage.Text = ConfigurationManager.AppSettings["apprentissage"];
+                    
 
                 }
             }
@@ -177,7 +312,14 @@ namespace Outils_de_primitives
             {
                 if (folderBrowserDialog4.ShowDialog() == DialogResult.OK)
                 {
-                    labelValidation.Text = folderBrowserDialog4.SelectedPath;
+
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings.Remove("validation");
+                    config.AppSettings.Settings.Add("validation", folderBrowserDialog4.SelectedPath);
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    labelValidation.Text = ConfigurationManager.AppSettings["validation"];
+                   
 
                 }
             }
@@ -196,7 +338,14 @@ namespace Outils_de_primitives
             {
                 if (folderBrowserDialog5.ShowDialog() == DialogResult.OK)
                 {
-                    labelTest.Text = folderBrowserDialog5.SelectedPath;
+
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings.Remove("test");
+                    config.AppSettings.Settings.Add("test", folderBrowserDialog5.SelectedPath);
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    labelTest.Text = ConfigurationManager.AppSettings["test"];
+                    
 
                 }
             }
@@ -209,6 +358,18 @@ namespace Outils_de_primitives
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+
+            labelTypePrimitives.Text = ConfigurationManager.AppSettings["primitives"];
+            labelEvaluation.Text = ConfigurationManager.AppSettings["evaluation"];
+            LabelApprentissage.Text = ConfigurationManager.AppSettings["apprentissage"];
+            labelValidation.Text = ConfigurationManager.AppSettings["validation"];
+            labelTest.Text = ConfigurationManager.AppSettings["test"];
+            labelExtraction.Text = ConfigurationManager.AppSettings["extraction"];
+
+
+
+
 
         }
 
@@ -380,6 +541,65 @@ namespace Outils_de_primitives
 
 
         }
+
+        }
+
+        private void comboBoxSource_SelectedIndexChanged(object sender, EventArgs e)
+        {   
+
+            if(radioButtonApprentissage.Checked)
+            label13.Text = LabelApprentissage.Text + "\\" + comboBoxSource.Text;
+
+            else if(radioButtonValidation.Checked)
+
+                label13.Text = labelValidation.Text + "\\" + comboBoxSource.Text;
+            else if(radioButtonTest.Checked)
+                label13.Text = labelTest.Text + "\\" + comboBoxSource.Text;
+            
+
+            DestinationLabel.Text = label13.Text.Replace('.','_')+".arff";
+
+
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog6 = new FolderBrowserDialog();
+
+            try
+            {
+                if (folderBrowserDialog6.ShowDialog() == DialogResult.OK)
+                {
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings.Remove("extraction");
+                    config.AppSettings.Settings.Add("extraction", folderBrowserDialog6.SelectedPath);
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    labelExtraction.Text = ConfigurationManager.AppSettings["extraction"];
+                  
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return;
+            }
+        }
+
+        private void comboBoxTypePrimitive_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 

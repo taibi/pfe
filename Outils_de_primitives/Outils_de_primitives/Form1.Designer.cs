@@ -30,6 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.labelExtraction = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.labelEvaluation = new System.Windows.Forms.Label();
             this.labelTypePrimitives = new System.Windows.Forms.Label();
@@ -46,6 +51,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DestinationLabel = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.radioButtonTest = new System.Windows.Forms.RadioButton();
+            this.radioButtonValidation = new System.Windows.Forms.RadioButton();
+            this.radioButtonApprentissage = new System.Windows.Forms.RadioButton();
             this.comboBoxSource = new System.Windows.Forms.ComboBox();
             this.comboBoxTypePrimitive = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,9 +92,7 @@
             this.folderBrowserDialog3 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog4 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog5 = new System.Windows.Forms.FolderBrowserDialog();
-            this.radioButtonApprentissage = new System.Windows.Forms.RadioButton();
-            this.radioButtonValidation = new System.Windows.Forms.RadioButton();
-            this.radioButtonTest = new System.Windows.Forms.RadioButton();
+            this.folderBrowserDialog6 = new System.Windows.Forms.FolderBrowserDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -107,6 +116,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.labelExtraction);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.labelEvaluation);
             this.tabPage1.Controls.Add(this.labelTypePrimitives);
@@ -129,6 +143,54 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Paramètrage";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(165, 243);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Parcourir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // labelExtraction
+            // 
+            this.labelExtraction.AutoSize = true;
+            this.labelExtraction.Location = new System.Drawing.Point(259, 248);
+            this.labelExtraction.Name = "labelExtraction";
+            this.labelExtraction.Size = new System.Drawing.Size(76, 13);
+            this.labelExtraction.TabIndex = 22;
+            this.labelExtraction.Text = "labelExtraction";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(16, 248);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(92, 13);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Dossier Extraction";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(486, 97);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "label17";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(487, 62);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 13);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "label16";
             // 
             // label9
             // 
@@ -272,6 +334,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.DestinationLabel);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.radioButtonTest);
             this.tabPage2.Controls.Add(this.radioButtonValidation);
             this.tabPage2.Controls.Add(this.radioButtonApprentissage);
@@ -293,13 +358,77 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // DestinationLabel
+            // 
+            this.DestinationLabel.AutoSize = true;
+            this.DestinationLabel.Location = new System.Drawing.Point(9, 156);
+            this.DestinationLabel.Name = "DestinationLabel";
+            this.DestinationLabel.Size = new System.Drawing.Size(86, 13);
+            this.DestinationLabel.TabIndex = 18;
+            this.DestinationLabel.Text = "DestinationLabel";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 134);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 13);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Destination :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(9, 111);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "label13";
+            // 
+            // radioButtonTest
+            // 
+            this.radioButtonTest.AutoSize = true;
+            this.radioButtonTest.Location = new System.Drawing.Point(212, 17);
+            this.radioButtonTest.Name = "radioButtonTest";
+            this.radioButtonTest.Size = new System.Drawing.Size(46, 17);
+            this.radioButtonTest.TabIndex = 15;
+            this.radioButtonTest.TabStop = true;
+            this.radioButtonTest.Text = "Test";
+            this.radioButtonTest.UseVisualStyleBackColor = true;
+            this.radioButtonTest.CheckedChanged += new System.EventHandler(this.radioButtonTest_CheckedChanged);
+            // 
+            // radioButtonValidation
+            // 
+            this.radioButtonValidation.AutoSize = true;
+            this.radioButtonValidation.Location = new System.Drawing.Point(119, 17);
+            this.radioButtonValidation.Name = "radioButtonValidation";
+            this.radioButtonValidation.Size = new System.Drawing.Size(71, 17);
+            this.radioButtonValidation.TabIndex = 14;
+            this.radioButtonValidation.TabStop = true;
+            this.radioButtonValidation.Text = "Validation";
+            this.radioButtonValidation.UseVisualStyleBackColor = true;
+            this.radioButtonValidation.CheckedChanged += new System.EventHandler(this.radioButtonValidation_CheckedChanged);
+            // 
+            // radioButtonApprentissage
+            // 
+            this.radioButtonApprentissage.AutoSize = true;
+            this.radioButtonApprentissage.Location = new System.Drawing.Point(12, 17);
+            this.radioButtonApprentissage.Name = "radioButtonApprentissage";
+            this.radioButtonApprentissage.Size = new System.Drawing.Size(92, 17);
+            this.radioButtonApprentissage.TabIndex = 13;
+            this.radioButtonApprentissage.TabStop = true;
+            this.radioButtonApprentissage.Text = "Apprentissage";
+            this.radioButtonApprentissage.UseVisualStyleBackColor = true;
+            this.radioButtonApprentissage.CheckedChanged += new System.EventHandler(this.radioButtonApprentissage_CheckedChanged);
+            // 
             // comboBoxSource
             // 
             this.comboBoxSource.FormattingEnabled = true;
-            this.comboBoxSource.Location = new System.Drawing.Point(105, 105);
+            this.comboBoxSource.Location = new System.Drawing.Point(105, 84);
             this.comboBoxSource.Name = "comboBoxSource";
             this.comboBoxSource.Size = new System.Drawing.Size(121, 21);
             this.comboBoxSource.TabIndex = 12;
+            this.comboBoxSource.SelectedIndexChanged += new System.EventHandler(this.comboBoxSource_SelectedIndexChanged);
             // 
             // comboBoxTypePrimitive
             // 
@@ -308,6 +437,7 @@
             this.comboBoxTypePrimitive.Name = "comboBoxTypePrimitive";
             this.comboBoxTypePrimitive.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTypePrimitive.TabIndex = 10;
+            this.comboBoxTypePrimitive.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypePrimitive_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -347,7 +477,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(192, 151);
+            this.numericUpDown1.Location = new System.Drawing.Point(170, 189);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown1.TabIndex = 5;
@@ -355,7 +485,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(31, 154);
+            this.checkBox1.Location = new System.Drawing.Point(9, 192);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(127, 17);
             this.checkBox1.TabIndex = 3;
@@ -365,11 +495,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 108);
+            this.label3.Location = new System.Drawing.Point(9, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Source";
+            this.label3.Text = "Source :";
             // 
             // tabPage3
             // 
@@ -587,42 +717,6 @@
             this.radioButton3.Text = "Apprentissage";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // radioButtonApprentissage
-            // 
-            this.radioButtonApprentissage.AutoSize = true;
-            this.radioButtonApprentissage.Location = new System.Drawing.Point(12, 17);
-            this.radioButtonApprentissage.Name = "radioButtonApprentissage";
-            this.radioButtonApprentissage.Size = new System.Drawing.Size(92, 17);
-            this.radioButtonApprentissage.TabIndex = 13;
-            this.radioButtonApprentissage.TabStop = true;
-            this.radioButtonApprentissage.Text = "Apprentissage";
-            this.radioButtonApprentissage.UseVisualStyleBackColor = true;
-            this.radioButtonApprentissage.CheckedChanged += new System.EventHandler(this.radioButtonApprentissage_CheckedChanged);
-            // 
-            // radioButtonValidation
-            // 
-            this.radioButtonValidation.AutoSize = true;
-            this.radioButtonValidation.Location = new System.Drawing.Point(119, 17);
-            this.radioButtonValidation.Name = "radioButtonValidation";
-            this.radioButtonValidation.Size = new System.Drawing.Size(71, 17);
-            this.radioButtonValidation.TabIndex = 14;
-            this.radioButtonValidation.TabStop = true;
-            this.radioButtonValidation.Text = "Validation";
-            this.radioButtonValidation.UseVisualStyleBackColor = true;
-            this.radioButtonValidation.CheckedChanged += new System.EventHandler(this.radioButtonValidation_CheckedChanged);
-            // 
-            // radioButtonTest
-            // 
-            this.radioButtonTest.AutoSize = true;
-            this.radioButtonTest.Location = new System.Drawing.Point(212, 17);
-            this.radioButtonTest.Name = "radioButtonTest";
-            this.radioButtonTest.Size = new System.Drawing.Size(46, 17);
-            this.radioButtonTest.TabIndex = 15;
-            this.radioButtonTest.TabStop = true;
-            this.radioButtonTest.Text = "Test";
-            this.radioButtonTest.UseVisualStyleBackColor = true;
-            this.radioButtonTest.CheckedChanged += new System.EventHandler(this.radioButtonTest_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -705,6 +799,15 @@
         private System.Windows.Forms.RadioButton radioButtonTest;
         private System.Windows.Forms.RadioButton radioButtonValidation;
         private System.Windows.Forms.RadioButton radioButtonApprentissage;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label DestinationLabel;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelExtraction;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog6;
 
     }
 }
