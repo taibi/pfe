@@ -145,16 +145,7 @@ namespace Outils_de_primitives
             {
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    /* 
-                     Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);       
-                     config.AppSettings.Settings.Remove("primitives");
-                     config.AppSettings.Settings.Add("primitives", folderBrowserDialog1.SelectedPath);
-                     config.Save(ConfigurationSaveMode.Modified);
-                     ConfigurationManager.RefreshSection("appSettings");
-                     labelTypePrimitives.Text = ConfigurationManager.AppSettings["primitives"];
-
                     
-                      */
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
                     foreach (XmlElement element in xmlDoc.DocumentElement)
@@ -173,7 +164,38 @@ namespace Outils_de_primitives
                     xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
                     ConfigurationManager.RefreshSection("appSettings");
                     labelTypePrimitives.Text = ConfigurationManager.AppSettings["primitives"];
-                   
+
+
+
+                    char[] splitters = new char[] { ' ' };
+                    string[] files;
+                    try
+                    {
+                        files = Directory.GetFiles(folderBrowserDialog1.SelectedPath);
+                    }
+                    catch (Exception ex1)
+                    {
+                        MessageBox.Show(ex1.ToString());
+                        return;
+                    }
+                    comboBoxTypePrimitive.Items.Clear();
+                    foreach (string file in files)
+                    {
+
+                        try
+                        {
+                            string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                            comboBoxTypePrimitive.Items.Add(laCase2[0]);
+
+                        }
+                        catch (Exception ex2)
+                        {
+                            MessageBox.Show(ex2.ToString());
+                            return;
+                        }
+                    }
+
+
 
 
 
@@ -191,41 +213,7 @@ namespace Outils_de_primitives
             }
 
 
-            /*
-
-            char[] splitters = new char[] { ' .' };
-            string[] files;
-            try
-            {
-                files = Directory.GetFiles(folderBrowserDialog1.SelectedPath);
-            }
-            catch (Exception ex1)
-            {
-                MessageBox.Show(ex1.ToString());
-                return;
-            }
-            comboBoxTypePrimitive.Items.Clear();
-            foreach (string file in files)
-            {
-
-                try
-                {
-                    string[] laCase2 = Path.GetFileName(file).Split(splitters);
-                    comboBoxTypePrimitive.Items.Add(laCase2[0]);
-
-                }
-                catch (Exception ex2)
-                {
-                    MessageBox.Show(ex2.ToString());
-                    return;
-                }
-            }
-
-
-
-
-
-            */
+            
 
 
 
@@ -241,34 +229,45 @@ namespace Outils_de_primitives
                 if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
                 {
 
-                    /*
+                    
                     Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                     config.AppSettings.Settings.Remove("evaluation");
                     config.AppSettings.Settings.Add("evaluation", folderBrowserDialog2.SelectedPath);
                     config.Save(ConfigurationSaveMode.Modified);
                     ConfigurationManager.RefreshSection("appSettings");
                     labelEvaluation.Text = ConfigurationManager.AppSettings["evaluation"];
-                    
-                    */
 
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-                    foreach (XmlElement element in xmlDoc.DocumentElement)
+
+
+                    char[] splitters = new char[] { ' ' };
+                    string[] files;
+                    try
                     {
-                        if (element.Name.Equals("appSettings"))
+                        files = Directory.GetFiles(folderBrowserDialog2.SelectedPath);
+                    }
+                    catch (Exception ex1)
+                    {
+                        MessageBox.Show(ex1.ToString());
+                        return;
+                    }
+                    comboBoxValeurs.Items.Clear();
+                    foreach (string file in files)
+                    {
+
+                        try
                         {
-                            foreach (XmlNode node in element.ChildNodes)
-                            {
-                                if (node.Attributes[0].Value.Equals("evaluation"))
-                                {
-                                    node.Attributes[1].Value = folderBrowserDialog2.SelectedPath;
-                                }
-                            }
+                            string[] laCase2 = Path.GetFileName(file).Split(splitters);
+                            comboBoxValeurs.Items.Add(laCase2[0]);
+
+                        }
+                        catch (Exception ex2)
+                        {
+                            MessageBox.Show(ex2.ToString());
+                            return;
                         }
                     }
-                    xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-                    ConfigurationManager.RefreshSection("appSettings");
-                    labelEvaluation.Text = ConfigurationManager.AppSettings["evaluation"];
+
+                 
 
 
 
@@ -279,6 +278,23 @@ namespace Outils_de_primitives
                 MessageBox.Show(ex.ToString());
                 return;
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -375,7 +391,7 @@ namespace Outils_de_primitives
 
 
 
-            char[] splitters = new char[] { '.' };
+            char[] splitters = new char[] { ' ' };
             string[] files;
             try
             {
@@ -398,10 +414,77 @@ namespace Outils_de_primitives
                 }
                 catch (Exception ex2)
                 {
-                   MessageBox.Show(ex2.ToString());
+                  MessageBox.Show(ex2.ToString());
                     return;
                 }
             }
+
+
+
+
+
+            char[] splittersEval = new char[] { ' ' };
+            string[] filesEval;
+            try
+            {
+                filesEval = Directory.GetFiles(labelEvaluation.Text);
+            }
+            catch (Exception ex3)
+            {
+                MessageBox.Show(ex3.ToString());
+                return;
+            }
+            comboBoxValeurs.Items.Clear();
+            foreach (string fileE in filesEval)
+            {
+
+                try
+                {
+                    string[] laCase2Eval = Path.GetFileName(fileE).Split(splittersEval);
+                    comboBoxValeurs.Items.Add(laCase2Eval[0]);
+
+                }
+                catch (Exception ex4)
+                {
+                    MessageBox.Show(ex4.ToString());
+                    return;
+                }
+            }
+
+
+
+            char[] splittersExt = new char[] { ' ' };
+            string[] filesExt;
+            try
+            {
+                filesExt = Directory.GetFiles(labelExtraction.Text);
+            }
+            catch (Exception ex5)
+            {
+                MessageBox.Show(ex5.ToString());
+                return;
+            }
+            comboBoxExt.Items.Clear();
+            foreach (string fileExt in filesExt)
+            {
+
+                try
+                {
+                    string[] laCase2Ext = Path.GetFileName(fileExt).Split(splittersExt);
+                    comboBoxExt.Items.Add(laCase2Ext[0]);
+
+                }
+                catch (Exception ex6)
+                {
+                    MessageBox.Show(ex6.ToString());
+                    return;
+                }
+            }
+
+
+
+
+
 
 
 
@@ -418,7 +501,7 @@ namespace Outils_de_primitives
    */
         private void ChoiceFolder(string rep)
         {
-            char[] splitters = new char[] { '.' };
+            char[] splitters = new char[] { ' ' };
             string[] files;
             try
             {
@@ -508,7 +591,7 @@ namespace Outils_de_primitives
             {
 
 
-                char[] splitters = new char[] { '.' };
+                char[] splitters = new char[] { ' ' };
                 string[] files;
                 try
                 {
@@ -547,7 +630,7 @@ namespace Outils_de_primitives
             {
 
 
-                char[] splitters = new char[] { '.' };
+                char[] splitters = new char[] { ' ' };
                 string[] files;
                 try
                 {
@@ -623,7 +706,43 @@ namespace Outils_de_primitives
                     config.Save(ConfigurationSaveMode.Modified);
                     ConfigurationManager.RefreshSection("appSettings");
                     labelExtraction.Text = ConfigurationManager.AppSettings["extraction"];
-                  
+
+                    char[] splittersExt = new char[] { ' ' };
+                    string[] filesExt;
+                    try
+                    {
+                        filesExt = Directory.GetFiles(labelExtraction.Text);
+                    }
+                    catch (Exception ex5)
+                    {
+                        MessageBox.Show(ex5.ToString());
+                        return;
+                    }
+                    comboBoxTypePrimitive.Items.Clear();
+                    foreach (string fileExt in filesExt)
+                    {
+
+                        try
+                        {
+                            string[] laCase2Ext = Path.GetFileName(fileExt).Split(splittersExt);
+                            comboBoxTypePrimitive.Items.Add(laCase2Ext[0]);
+
+                        }
+                        catch (Exception ex6)
+                        {
+                            MessageBox.Show(ex6.ToString());
+                            return;
+                        }
+                    }
+
+
+
+
+
+
+
+
+
 
                 }
             }

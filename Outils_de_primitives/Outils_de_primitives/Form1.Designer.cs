@@ -66,14 +66,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxValeurs = new System.Windows.Forms.ComboBox();
+            this.comboBoxExt = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -482,14 +478,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.comboBox3);
-            this.tabPage3.Controls.Add(this.radioButton2);
-            this.tabPage3.Controls.Add(this.radioButton1);
             this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.comboBox5);
-            this.tabPage3.Controls.Add(this.comboBox4);
+            this.tabPage3.Controls.Add(this.comboBoxValeurs);
+            this.tabPage3.Controls.Add(this.comboBoxExt);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.listBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -503,84 +495,45 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 47);
+            this.label2.Location = new System.Drawing.Point(33, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Type evaluation";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(115, 44);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 12;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(145, 94);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Validation";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(29, 94);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(92, 17);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Apprentissage";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label2.Text = "Evaluation";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(108, 226);
+            this.button2.Location = new System.Drawing.Point(77, 126);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
             this.button2.Text = "Associer";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 173);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Valeurs";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 131);
+            this.label6.Location = new System.Drawing.Point(33, 79);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "Extraction";
             // 
-            // comboBox5
+            // comboBoxValeurs
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(86, 165);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(144, 21);
-            this.comboBox5.TabIndex = 3;
+            this.comboBoxValeurs.FormattingEnabled = true;
+            this.comboBoxValeurs.Location = new System.Drawing.Point(108, 44);
+            this.comboBoxValeurs.Name = "comboBoxValeurs";
+            this.comboBoxValeurs.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxValeurs.TabIndex = 3;
             // 
-            // comboBox4
+            // comboBoxExt
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(86, 128);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(144, 21);
-            this.comboBox4.TabIndex = 2;
+            this.comboBoxExt.FormattingEnabled = true;
+            this.comboBoxExt.Location = new System.Drawing.Point(108, 79);
+            this.comboBoxExt.Name = "comboBoxExt";
+            this.comboBoxExt.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxExt.TabIndex = 2;
             // 
             // label5
             // 
@@ -594,9 +547,9 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(310, 44);
+            this.listBox2.Location = new System.Drawing.Point(355, 44);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(242, 316);
+            this.listBox2.Size = new System.Drawing.Size(148, 251);
             this.listBox2.TabIndex = 0;
             // 
             // tabPage4
@@ -750,14 +703,10 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBoxValeurs;
+        private System.Windows.Forms.ComboBox comboBoxExt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TabPage tabPage4;
