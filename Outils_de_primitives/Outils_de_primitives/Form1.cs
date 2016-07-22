@@ -73,7 +73,7 @@ namespace Outils_de_primitives
 
 
            // matlab.Feval("extract", 0, out result, label13.Text,LabelApprentissage.Text, comboBoxSource.Text.Replace('.','_')+".arff");
-            matlab.Feval("extract", 0, out result, label13.Text, labelExtraction.Text, comboBoxSource.Text.Replace('.', '_') + ".arff", labelTypePrimitives.Text, comboBoxSource.Text.Split('.')[0]);
+            matlab.Feval("extract", 0, out result, label13.Text, labelExtraction.Text, comboBoxSource.Text.Replace('.', '_') + ".arff", labelTypePrimitives.Text, comboBoxSource.Text.Split('.')[0], labelZonevisage.Text + comboBoxSource.Text.Split('.')[0]+".arff");
       //      matlab.Feval("extract", 0, out result, label13.Text, labelExtraction.Text, "text.arff");
 
 
@@ -388,7 +388,7 @@ namespace Outils_de_primitives
             labelValidation.Text = ConfigurationManager.AppSettings["validation"];
             labelTest.Text = ConfigurationManager.AppSettings["test"];
             labelExtraction.Text = ConfigurationManager.AppSettings["extraction"];
-
+            labelZonevisage.Text = ConfigurationManager.AppSettings["zoneVisage"];
 
 
             char[] splitters = new char[] { ' ' };
@@ -759,5 +759,36 @@ namespace Outils_de_primitives
         }
 
 
-}
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog7 = new FolderBrowserDialog();
+
+            try
+            {
+                if (folderBrowserDialog7.ShowDialog() == DialogResult.OK)
+                {
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings.Remove("zoneVisage");
+                    config.AppSettings.Settings.Add("zoneVisage", folderBrowserDialog7.SelectedPath);
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
+                    labelZonevisage.Text = ConfigurationManager.AppSettings["zoneVisage"];
+
+
+                 }
+
+
+
+
+          }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return;
+            }
+
+        }
+
+    }
 }
